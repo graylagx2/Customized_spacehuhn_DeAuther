@@ -1,0 +1,165 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui"/>
+        <title>DeAuther</title> 
+        <style>       
+            .menu-button {
+                display: inline-block;
+                width: 300px;
+                margin: 4px;
+                padding: 7px 20px;
+                color: grey;
+                font-size: 25px;
+                text-shadow: .5px .5px black;
+                background: #F04747;
+            }
+            .menu-button:hover {
+                background: rgba(240, 71, 71, 0.55);
+                cursor: pointer;
+            }
+            .menu-wrap {
+                background-color: #111;
+                padding: 40px 0;
+                overflow: hidden;
+                transition: all 0.6s;
+                position: fixed;
+                width: 250px;
+                top: 0;
+                left: -250px;
+                bottom: 0;
+                z-index: 999;
+            }
+            .menu-overlay {
+                background: rgba(0, 0, 0, 0.4);
+                display: none;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 900;
+            }
+            .menu-wrap:hover .menu-close {
+                opacity: 1;
+            }
+            .menu-toggle {
+                display: none;
+            }
+            .menu-toggle:checked + .menu-wrap {
+                left: -45px;
+            }
+            .menu-toggle:checked ~ .menu-overlay {
+                display: block;
+            }
+            .menu-title {
+                color: #F04747;
+                padding-left: 40px;
+                font-weight: 300;
+                font-family: impact;
+            }
+            .menu-list {
+                position: absolute;
+                top: 120px;
+                left: 0;
+                bottom: 0px;
+                width: 100%;
+                height: inherit;
+                display: block;
+                overflow: hidden;
+            }
+            .menu-wrap:hover .menu-list {
+                overflow-y: auto;
+            }
+            .menu-list ul {
+                list-style-type: none;
+            }
+            .menu-list li {
+                display: block;
+            }
+            .menu-list li:first-child {
+                border-top: medium none;
+            }
+            .menu-list li a {
+                display: block;
+                padding: 10px 40px;
+                font-size: 18px; 
+                color: grey;
+                text-decoration: none;
+            }
+            .menu-list li a:hover {
+                background: rgba(0, 0, 0, 0.64);
+            }
+            .menu-list li a:active {
+                background: rgba(0, 0, 0, 0.64);
+            }
+            span:before, span:after {
+                content:'\00a0\00a0\00a0\00a0';
+                text-decoration: line-through;
+                margin: auto 0.3em;
+                color: #F04747;
+            }
+        </style>
+    </head>
+    <body onload="loadLang()" style="background-color: #36393e;"> 
+    	<center>  
+            <h1 style="font-family: impact; letter-spacing: 0px; background-color: rgba(0, 0, 0, 0.49); color: grey; font-size: 45px; border-style: solid; border-width: 2px 10px 2px 10px;"><span>DeAuther</span></h1>
+    		<p class="centered" data-translate="disclaimer" style="color: grey;">
+						This project is a proof of concept for testing and educational purposes. Use it only against your own networks and devices!<br>
+						<br>
+						It uses valid Wi-Fi frames described in the IEEE 802.11 standard and does not block or disrupt any frequencies.<br>
+						Please check the legal regulations in your country before using it.<br>
+						<br>
+						Please don't refer to this project as "jammer", that totally undermines the real purpose of this project!<br>
+						If you do, it only proves that you didn't understand anything of what this project stands for.<br><br>
+						For more information visit:
+            </p>  
+            <div style="color: grey;">
+	    	    <a href="https://github.com/spacehuhn/esp8266_deauther/wiki" target="_blank" style="color: #F04747; text-decoration: none;">Wiki</a> | <a href="https://github.com/spacehuhn/esp8266_deauther" target="_blank" style="color: #F04747; text-decoration: none;">GitHub</a>
+            </div>
+            <br>
+        <label for="slide-menu-right" class="menu-button">Start Menu</label>
+
+            <div class="slide-menu">
+                <input id="slide-menu-right" class="menu-toggle" type="checkbox" />
+                <div class="menu-wrap">       
+                    <h1 class="menu-title">DeAuther</h1>
+                    <div class="menu-list">
+                        <ul>
+                            <li>
+                                <a href="scan.html">Scan</a>
+                            </li>
+                            <li>
+                                <a href="ssids.html">SSID's</a>
+                            </li>
+                            <li>
+                                <a href="attack.html">Attack</a>
+                            </li>
+                            <li>
+                                <a href="settings.html">Settings</a>
+                            </li>
+                            <li>
+                                <a href="info.html">Info</a>
+                            </li>
+                            <br>
+                            <p style="color: grey;">Web interface customized by:</p> 
+                            <a href="https://github.com/graylagx2" target="_blank" style="color: #F04747; text-decoration: none;">github.com/graylagx2</a><br>
+                        </ul>
+                    </div>
+                </div>
+                <label for="slide-menu-right" class="menu-overlay"></label>
+            </div>
+            <br><br>
+	        <div style="color: gray;"> 
+                <br> <br>Copyright (c) 2018 Stefan Kremser<br> 
+	    	<a href="https://github.com/spacehuhn" target="_blank" style="color: #F04747; text-decoration: none;">github.com/spacehuhn</a><br><br>
+                
+            <br>Web interface customized by:<br>  
+            <a href="https://github.com/graylagx2" target="_blank" style="color: #F04747; text-decoration: none;">github.com/graylagx2</a><br>
+	    </div>            
+
+        </center>
+	</body>
+</html>
