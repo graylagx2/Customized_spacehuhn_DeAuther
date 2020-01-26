@@ -4,8 +4,47 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui"/>
+        <meta name="theme-color" content="#36393e" />
         <title>DeAuther</title> 
-        <style>       
+        <style type="text/css">
+            body {
+                background-color: #36393e;
+            }
+            .header {
+                overflow: hidden;
+                text-align: center;
+                font-family: sans-serif; 
+                text-shadow: 1px 1px #212121;
+                letter-spacing: -2px; 
+                background-color: rgba(17, 17, 17, 0.35);
+                color: grey; 
+                font-size: 2.0rem;
+                font-weight: 250;
+                border-style: solid; 
+                border-width: 1px 0px 1px 0px; 
+            }
+            .header:before,
+            .header:after {
+                background-color: rgba(240, 71, 71, 0.55);
+                border-bottom: .2px solid #212121;
+                content: "";
+                display: inline-block;
+                height: .5px;
+                position: relative;
+                vertical-align: middle;
+                width: 50%;
+            }
+            .header:before {
+                right: 0.1em;
+                margin-left: -50%;
+            }
+            .header:after {
+                left: 0.1em;
+                margin-right: -50%;
+            }
+            .disclaimer {
+                color: grey;
+            }
             .menu-button {
                 display: inline-block;
                 width: 300px;
@@ -13,8 +52,8 @@
                 padding: 7px 20px;
                 color: grey;
                 font-size: 25px;
-                text-shadow: .5px .5px black;
-                background: #F04747;
+                text-shadow: .5px .5px #6d6d6d;
+                background: rgba(240, 71, 71, 0.79);
             }
             .menu-button:hover {
                 background: rgba(240, 71, 71, 0.55);
@@ -57,8 +96,13 @@
             .menu-title {
                 color: #F04747;
                 padding-left: 40px;
-                font-weight: 300;
-                font-family: impact;
+                font-weight: 250;
+                font-family: sans-serif;
+                text-shadow: 1px 1px #2f3136;
+                border-color: #F04747; 
+                border-style: solid; 
+                border-width: 0px 0px 2px 0px; 
+                color: grey;
             }
             .menu-list {
                 position: absolute;
@@ -79,9 +123,6 @@
             .menu-list li {
                 display: block;
             }
-            .menu-list li:first-child {
-                border-top: medium none;
-            }
             .menu-list li a {
                 display: block;
                 padding: 10px 40px;
@@ -95,33 +136,41 @@
             .menu-list li a:active {
                 background: rgba(0, 0, 0, 0.64);
             }
-            span:before, span:after {
-                content:'\00a0\00a0\00a0\00a0';
-                text-decoration: line-through;
-                margin: auto 0.3em;
-                color: #F04747;
+            .spacehuhn_promote {
+                color: grey; 
+                font-size: 12px;
             }
+            .graylagx2_promote {
+                color: grey; 
+                font-size: 10px;
+            }
+            span {
+                padding-top: 25px;
+                border-top: 1px solid grey;
+                line-height: 10px;
+            }
+
+            a {
+                color: #F04747; 
+                text-decoration: none;
+            }
+
         </style>
     </head>
-    <body onload="loadLang()" style="background-color: #36393e;"> 
+    <body onload="loadLang()"> 
     	<center>  
-            <h1 style="font-family: impact; letter-spacing: 0px; background-color: rgba(0, 0, 0, 0.49); color: grey; font-size: 45px; border-style: solid; border-width: 2px 10px 2px 10px;"><span>DeAuther</span></h1>
-    		<p class="centered" data-translate="disclaimer" style="color: grey;">
-						This project is a proof of concept for testing and educational purposes. Use it only against your own networks and devices!<br>
-						<br>
-						It uses valid Wi-Fi frames described in the IEEE 802.11 standard and does not block or disrupt any frequencies.<br>
-						Please check the legal regulations in your country before using it.<br>
-						<br>
-						Please don't refer to this project as "jammer", that totally undermines the real purpose of this project!<br>
-						If you do, it only proves that you didn't understand anything of what this project stands for.<br><br>
-						For more information visit:
+            <h1 class="header"><span>DeAuther</span></h1>
+    		<p class="disclaimer" data-translate="disclaimer">
+                This project is a proof of concept for testing and educational purposes. Use it only against your own networks and devices!<br>
+				<br>
+				It uses valid Wi-Fi frames described in the IEEE 802.11 standard and does not block or disrupt any frequencies.<br>
+				Please check the legal regulations in your country before using it.<br>
+				<br>
+                Please don't refer to this project as "jammer", that totally undermines the real purpose of this project!<br>
+                If you do, it only proves that you didn't understand anything of what this project stands for.<br>
             </p>  
-            <div style="color: grey;">
-	    	    <a href="https://github.com/spacehuhn/esp8266_deauther/wiki" target="_blank" style="color: #F04747; text-decoration: none;">Wiki</a> | <a href="https://github.com/spacehuhn/esp8266_deauther" target="_blank" style="color: #F04747; text-decoration: none;">GitHub</a>
-            </div>
             <br>
         <label for="slide-menu-right" class="menu-button">Start Menu</label>
-
             <div class="slide-menu">
                 <input id="slide-menu-right" class="menu-toggle" type="checkbox" />
                 <div class="menu-wrap">       
@@ -144,22 +193,26 @@
                                 <a href="info.html">Info</a>
                             </li>
                             <br>
-                            <p style="color: grey;">Web interface customized by:</p> 
-                            <a href="https://github.com/graylagx2" target="_blank" style="color: #F04747; text-decoration: none;">github.com/graylagx2</a><br>
+                            <p class="graylagx2_promote">
+                                <span>Web interface customized by:</span><br>
+                                <a href="https://github.com/graylagx2" target="_blank">github.com/graylagx2</a>
+                                <br><br>
+                                More content at:<br>
+                                <a href="https://www.youtube.com/channel/UCX-P0uOzxPwFNZFD3uZmgXQ" target="_blank">youtube.com/graylagx2</a>
+                            </p>
                         </ul>
                     </div>
                 </div>
                 <label for="slide-menu-right" class="menu-overlay"></label>
             </div>
-            <br><br>
-	        <div style="color: gray;"> 
-                <br> <br>Copyright (c) 2018 Stefan Kremser<br> 
-	    	<a href="https://github.com/spacehuhn" target="_blank" style="color: #F04747; text-decoration: none;">github.com/spacehuhn</a><br><br>
-                
-            <br>Web interface customized by:<br>  
-            <a href="https://github.com/graylagx2" target="_blank" style="color: #F04747; text-decoration: none;">github.com/graylagx2</a><br>
-	    </div>            
-
+            <br>   
+            <footer class="spacehuhn_promote">
+                <p>For more information visit:<br>
+                    <a href="https://github.com/spacehuhn/esp8266_deauther/wiki" target="_blank">Wiki</a> | <a href="https://github.com/spacehuhn/esp8266_deauther" target="_blank">GitHub</a>
+                    <br> <br>Copyright (c) 2018 Stefan Kremser<br> 
+                    <a href="https://github.com/spacehuhn" target="_blank">github.com/spacehuhn</a><br><br>
+                </p>
+            </footer> 
         </center>
 	</body>
 </html>
